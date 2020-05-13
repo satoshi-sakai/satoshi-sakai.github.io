@@ -25,16 +25,17 @@
 	function setCookie(){
 		console.log('setCookie start');
 		
-		var kigen = 30;
-		var nowdate = new Date();
-		nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000);
-		var kigendate = nowdate.toGMTString();
+		// var kigen = 30;
+		// var nowdate = new Date();
+		// nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000);
+		// var kigendate = nowdate.toGMTString();
+		// var expires = "expires=" + kigendate + "; ";
+
 		var cookievalue = "isOpen=true; ";
-		var expires = "expires=" + kigendate + "; ";
 		var uri = location.pathname + location.search;
 		var path = "path=" + encodeURI(uri);
 		console.log("path  " + path);
-		document.cookie = cookievalue + expires + path;
+		document.cookie = cookievalue + path;
 		console.log("cookie  " + document.cookie);
 	}
 		
