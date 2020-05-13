@@ -49,10 +49,10 @@ function setCookie(){
 	var cookievalue = "isOpen=true; ";
 	var expires = "expires=" + kigendate + "; ";
 	var path = "path=" + location.pathname + location.search;
-	var secure = "secure=trure";
+	var secure = "secure=ture";
 	
 	console.log("path  " + path);
-	document.cookie = cookievalue + expires + path;
+	document.cookie = cookievalue + expires + path + secure;
 	alert(document.cookie);
 }
 
