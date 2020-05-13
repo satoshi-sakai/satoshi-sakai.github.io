@@ -31,7 +31,8 @@
 		var kigendate = nowdate.toGMTString();
 		var cookievalue = "isOpen=true; ";
 		var expires = "expires=" + kigendate + "; ";
-		var path = "path=" + location.pathname + location.search;
+		var uri = location.pathname + location.search;
+		var path = "path=" + encodeURI(uri);
 		console.log("path  " + path);
 		document.cookie = cookievalue + expires + path;
 		console.log("cookie  " + document.cookie);
