@@ -22,55 +22,30 @@
 	console.log(query);
 	console.log(protocol);
 	
-	function getCookieArray(){
-		var arr = new Array();
-		if(document.cookie != ''){
-			console.log('Cookie exist');
-			
-			var tmp = document.cookie.split('; ');
-			for(var i=0;i<tmp.length;i++){
-				var data = tmp[i].split('=');
-				arr[data[0]] = decodeURIComponent(data[1]);
-			}
-		}
-		else{
-			console.log('Cookie not exist');
-		}
-		return arr;
-	}
-	
 	function setCookie(){
 		console.log('setCookie start');
 		
-		var kigen = 30; //Cookieの期限（1ヶ月とする）←適宜、適切な期限を設定
-		var nowdate = new Date(); //現在の日付データを取得
-		nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000); //1ヶ月後の日付データを作成
-		var kigendate = nowdate.toGMTString(); //GMT形式に変換して変数kigendateに格納
+		var kigen = 30;
+		var nowdate = new Date();
+		nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000);
+		var kigendate = nowdate.toGMTString();
 		var cookievalue = "isOpen=true; ";
 		var expires = "expires=" + kigendate + "; ";
 		var path = "path=" + location.pathname + location.search;
 		console.log("path  " + path);
 		document.cookie = cookievalue + expires + path;
-		alert(document.cookie);
+		console.log("cookie  " + document.cookie);
 	}
-	
-	// keyを指定して取得
-	// 「 key1=val1; key2=val2; key3=val3; ・・・ 」というCookie情報が保存されているとする
-	var arr = getCookieArray();
-	
-	alert(document.cookie);
-	
+		
 	if(document.cookie != '' ){
 	
-		var value = 'key1の値：' + arr['key1'];
-		console.log(value);
+		console.log(document.cookie);
 		// key1の値：val1
 	
 	}else{
-			console.log('arr is 0');
+			console.log('cookie not exist');
 			alert('test');
-			setCookie();
-			
+			setCookie();			
 	}
 	console.log('end');
 	
