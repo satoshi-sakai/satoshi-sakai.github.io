@@ -51,15 +51,14 @@ function setCookie(){
 	var path = "path=" + location.pathname + location.search;
 	
 	console.log("pathaaaa  " + path);
-	document.cookie = cookievalue + expires + path;
+//	document.cookie = cookievalue + expires + path;
+	document.cookie = cookievalue;
 	console.log('setCookie end');
 }
 
 // keyを指定して取得
 // 「 key1=val1; key2=val2; key3=val3; ・・・ 」というCookie情報が保存されているとする
 var arr = getCookieArray();
-
-alert(document.cookie);
 
 if(document.cookie != '' ){
 
