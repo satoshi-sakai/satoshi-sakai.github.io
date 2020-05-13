@@ -1,85 +1,81 @@
 <script>
-//if ('serviceWorker' in navigator) {
-//    console.log('Found serviceWorker');
-//    navigator.serviceWorker.register('/sw.js')
-//        .then((reg) => {
-//            console.log('Service Worker Registered', reg);
-//        });
-//} else {
-//    console.log('Not Found serviceWorker');
-//}
-
-
-var url = location.href ;
-var host = location.hostname ;
-var path = location.pathname ;
-var query = location.search ;
-var protocol = location.protocol ;
-
-console.log(url);
-console.log(host);
-console.log(path);
-console.log(query);
-console.log(protocol);
-
-function getCookieArray(){
-    var arr = new Array();
-    if(document.cookie != ''){
-    	console.log('Cookie exist');
-    	
-        var tmp = document.cookie.split('; ');
-        for(var i=0;i<tmp.length;i++){
-            var data = tmp[i].split('=');
-            arr[data[0]] = decodeURIComponent(data[1]);
-        }
-    }
-    else{
-    	console.log('Cookie not exist');
-    }
-    return arr;
-}
-
-function setCookie(){
-	console.log('setCookie start');
+	if ('serviceWorker' in navigator) {
+		console.log('Found serviceWorker');
+		navigator.serviceWorker.register('/sw.js')
+			.then((reg) => {
+				console.log('Service Worker Registered', reg);
+			});
+	} else {
+		console.log('Not Found serviceWorker');
+	}
 	
-	var kigen = 30; //Cookie�̊����i1�����Ƃ���j���K�X�A�K�؂Ȋ�����ݒ�
-	var nowdate = new Date(); //���݂̓��t�f�[�^���擾
-	nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000); //1������̓��t�f�[�^���쐬
-	var kigendate = nowdate.toGMTString(); //GMT�`���ɕϊ����ĕϐ�kigendate�Ɋi�[
-	var cookievalue = "isOpen=true; ";
-	var expires = "expires=" + kigendate + "; ";
-	var path = "path=" + location.pathname + location.search;
-//	var path = "path=" + location.pathname;
-
-	console.log("pathaaaa  " + path);
-//	document.cookie = cookievalue + expires + path;
-	document.cookie = cookievalue + expires + path;
-	console.log('setCookie end');
-}
-
-// key���w�肵�Ď擾
-// �u key1=val1; key2=val2; key3=val3; �E�E�E �v�Ƃ���Cookie��񂪕ۑ�����Ă���Ƃ���
-var arr = getCookieArray();
-
-if(document.cookie != '' ){
-
-	var value = 'key1�̒l�F' + arr['key1'];
-	console.log(value);
-	// key1�̒l�Fval1
-
-}else{
-	    console.log('arr is 0');
-	    alert('test');
-	    setCookie();
-	    
-}
-console.log('end');
-
-</script>
-testtesttest
-2222 2222
-3333 3333
-<br>
-aaaa
-<br>
-bbbb
+	
+	var url = location.href ;
+	var host = location.hostname ;
+	var path = location.pathname ;
+	var query = location.search ;
+	var protocol = location.protocol ;
+	
+	console.log(url);
+	console.log(host);
+	console.log(path);
+	console.log(query);
+	console.log(protocol);
+	
+	function getCookieArray(){
+		var arr = new Array();
+		if(document.cookie != ''){
+			console.log('Cookie exist');
+			
+			var tmp = document.cookie.split('; ');
+			for(var i=0;i<tmp.length;i++){
+				var data = tmp[i].split('=');
+				arr[data[0]] = decodeURIComponent(data[1]);
+			}
+		}
+		else{
+			console.log('Cookie not exist');
+		}
+		return arr;
+	}
+	
+	function setCookie(){
+		console.log('setCookie start');
+		
+		var kigen = 30; //Cookieの期限（1ヶ月とする）←適宜、適切な期限を設定
+		var nowdate = new Date(); //現在の日付データを取得
+		nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000); //1ヶ月後の日付データを作成
+		var kigendate = nowdate.toGMTString(); //GMT形式に変換して変数kigendateに格納
+		var cookievalue = "isOpen=true; ";
+		var expires = "expires=" + kigendate + "; ";
+		var path = "path=" + location.pathname + location.search;
+		console.log("path  " + path);
+		document.cookie = cookievalue + expires + path;
+		alert(document.cookie);
+	}
+	
+	// keyを指定して取得
+	// 「 key1=val1; key2=val2; key3=val3; ・・・ 」というCookie情報が保存されているとする
+	var arr = getCookieArray();
+	
+	alert(document.cookie);
+	
+	if(document.cookie != '' ){
+	
+		var value = 'key1の値：' + arr['key1'];
+		console.log(value);
+		// key1の値：val1
+	
+	}else{
+			console.log('arr is 0');
+			alert('test');
+			setCookie();
+			
+	}
+	console.log('end');
+	
+	</script>
+	testtesttest
+	2222
+	3333
+	
