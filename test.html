@@ -51,8 +51,10 @@ function setCookie(){
 	var path = "path=" + location.pathname + location.search;
 	var secure = "secure=ture";
 	
-	console.log("path  " + path);
+	console.log("pathaaaa  " + path);
 	document.cookie = cookievalue + expires + path;
+	console.log('setCookie end');
+
 	alert(document.cookie);
 }
 
