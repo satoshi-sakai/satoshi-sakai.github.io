@@ -42,29 +42,30 @@ function getCookieArray(){
 function setCookie(){
 	console.log('setCookie start');
 	
-	var kigen = 30; //Cookie‚ÌŠúŒÀi1ƒ–Œ‚Æ‚·‚éj©“K‹XA“KØ‚ÈŠúŒÀ‚ğİ’è
-	var nowdate = new Date(); //Œ»İ‚Ì“ú•tƒf[ƒ^‚ğæ“¾
-	nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000); //1ƒ–ŒŒã‚Ì“ú•tƒf[ƒ^‚ğì¬
-	var kigendate = nowdate.toGMTString(); //GMTŒ`®‚É•ÏŠ·‚µ‚Ä•Ï”kigendate‚ÉŠi”[
+	var kigen = 30; //Cookieï¿½ÌŠï¿½ï¿½ï¿½ï¿½i1ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½Kï¿½Xï¿½Aï¿½Kï¿½Ø‚ÈŠï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	var nowdate = new Date(); //ï¿½ï¿½ï¿½İ‚Ì“ï¿½ï¿½tï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½æ“¾
+	nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000); //1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì“ï¿½ï¿½tï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ì¬
+	var kigendate = nowdate.toGMTString(); //GMTï¿½`ï¿½ï¿½ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½Ä•Ïï¿½kigendateï¿½ÉŠiï¿½[
 	var cookievalue = "isOpen=true; ";
 	var expires = "expires=" + kigendate + "; ";
-	var path = "path=" + location.pathname + location.search;
-	
+	//var path = "path=" + location.pathname + location.search;
+	var path = "path=" + location.pathname;
+
 	console.log("pathaaaa  " + path);
 //	document.cookie = cookievalue + expires + path;
 	document.cookie = cookievalue + expires + path;
 	console.log('setCookie end');
 }
 
-// key‚ğw’è‚µ‚Äæ“¾
-// u key1=val1; key2=val2; key3=val3; EEE v‚Æ‚¢‚¤Cookieî•ñ‚ª•Û‘¶‚³‚ê‚Ä‚¢‚é‚Æ‚·‚é
+// keyï¿½ï¿½ï¿½wï¿½è‚µï¿½Äæ“¾
+// ï¿½u key1=val1; key2=val2; key3=val3; ï¿½Eï¿½Eï¿½E ï¿½vï¿½Æ‚ï¿½ï¿½ï¿½Cookieï¿½ï¿½ñ‚ª•Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½
 var arr = getCookieArray();
 
 if(document.cookie != '' ){
 
-	var value = 'key1‚Ì’lF' + arr['key1'];
+	var value = 'key1ï¿½Ì’lï¿½F' + arr['key1'];
 	console.log(value);
-	// key1‚Ì’lFval1
+	// key1ï¿½Ì’lï¿½Fval1
 
 }else{
 	    console.log('arr is 0');
@@ -80,3 +81,5 @@ testtesttest
 3333 3333
 <br>
 aaaa
+<br>
+bbbb
