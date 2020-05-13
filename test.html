@@ -48,8 +48,8 @@ function setCookie(){
 	var kigendate = nowdate.toGMTString(); //GMT�`���ɕϊ����ĕϐ�kigendate�Ɋi�[
 	var cookievalue = "isOpen=true; ";
 	var expires = "expires=" + kigendate + "; ";
-	//var path = "path=" + location.pathname + location.search;
-	var path = "path=" + location.pathname;
+	var path = "path=" + location.pathname + location.search;
+//	var path = "path=" + location.pathname;
 
 	console.log("pathaaaa  " + path);
 //	document.cookie = cookievalue + expires + path;
