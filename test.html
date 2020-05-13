@@ -49,7 +49,7 @@ function setCookie(){
 	var cookievalue = "isOpen=true; ";
 	var expires = "expires=" + kigendate + "; ";
 
-	document.cookie = cookievalue + expires;
+	document.cookie = cookievalue + expires + path;
 	alert(document.cookie);
 }
 
@@ -68,7 +68,7 @@ if(document.cookie != '' ){
 }else{
 	    console.log('arr is 0');
 	    alert('test');
-	    setCookie();
+//	    setCookie();
 	    
 }
 console.log('end');
