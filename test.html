@@ -32,10 +32,12 @@
 		// var expires = "expires=" + kigendate + "; ";
 
 		var cookievalue = "isOpen=true; ";
-		var uri = location.pathname + location.search;
-		var path = "path=" + encodeURI(uri);
+		// var uri = location.pathname + location.search;
+		// var path = "path=" + encodeURI(uri);
+		
 		console.log("path  " + path);
-		document.cookie = cookievalue + path;
+//		document.cookie = cookievalue + path;
+		document.cookie = cookievalue;
 		console.log("cookie  " + document.cookie);
 	}
 		
