@@ -49,6 +49,8 @@ function setCookie(){
 	var cookievalue = "isOpen=true; ";
 	var expires = "expires=" + kigendate + "; ";
 	var path = "path=" + location.pathname + location.search;
+	var secure = "secure=trure";
+	
 	console.log("path  " + path);
 	document.cookie = cookievalue + expires + path;
 	alert(document.cookie);
